@@ -14,16 +14,21 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Cormorant Garamond', serif; background: var(--white); color: var(--black); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        body { 
+            font-family: 'Cormorant Garamond', serif; 
+            background: var(--white); 
+            color: var(--black); 
+            line-height: 1.6; 
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden; /* Prevents side-scrolling on mobile */
+        }
 
         header { height: 90px; width: 100%; display: grid; grid-template-columns: 60px 1fr 60px; align-items: center; padding: 0 20px; border-bottom: 1px solid var(--border); }
         .nav-back { grid-column: 1; display: flex; align-items: center; text-decoration: none; color: #000; transition: 0.3s; }
         .nav-back:hover { color: var(--gold); }
         .main-logo-fixed { grid-column: 2; display: flex; justify-content: center; }
         .main-logo-fixed img { height: 32px; }
-        
-.lang-container { grid-column: 3; display: flex; justify-content: flex-end; font-family: 'Montserrat'; font-size: 0.7rem; font-weight: 700; color: var(--forest); }
-
+        .lang-container { grid-column: 3; display: flex; justify-content: flex-end; font-family: 'Montserrat'; font-size: 0.7rem; font-weight: 700; color: var(--forest); }
 
         .product-container { max-width: 1200px; margin: 40px auto; display: grid; grid-template-columns: 1fr; gap: 60px; padding: 0 20px; }
         @media (min-width: 992px) { .product-container { grid-template-columns: 1fr 1.1fr; align-items: start; } }
@@ -38,194 +43,75 @@
         /* --- PRODUCT INFO --- */
         .stock-status { display: flex; align-items: center; gap: 8px; font-family: 'Montserrat'; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
         .red-dot { height: 8px; width: 8px; background: var(--error); border-radius: 50%; }
-
-        h1 { font-size: 4rem; font-weight: 300; font-style: italic; line-height: 1; margin-bottom: 15px; }
+        h1 { font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 300; font-style: italic; line-height: 1; margin-bottom: 15px; }
         .origin-tag { font-family: 'Montserrat'; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); margin-bottom: 25px; display: block; font-weight: 600; }
-        
-        .description { font-size: 1.25rem; color: #444; margin-bottom: 40px; }
+        .description { font-size: 1.1rem; color: #444; margin-bottom: 40px; }
         
         /* --- AWARD SECTION --- */
         .award-box { background: #fdfbf7; border: 1px solid #f1ece4; padding: 30px; margin-bottom: 40px; border-radius: 8px; }
         .award-box h4 { font-family: 'Montserrat'; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: #8a7350; margin-bottom: 15px; font-weight: 700; }
         .award-quote { font-style: italic; font-size: 1.15rem; color: #555; border-left: 2px solid var(--gold); padding-left: 20px; }
 
-       /* --- BADGES (Centered) --- */
-.badges { 
-    display: flex; 
-    gap: 30px; 
-    margin: 30px auto 15px auto; /* Centers the container itself */
-    justify-content: center;     /* Centers the images inside */
-    align-items: center; 
-}
+        .badges { display: flex; gap: 30px; margin: 30px auto 15px auto; justify-content: center; align-items: center; }
+        .badges img { height: 70px; width: auto; object-fit: contain; }
+        .availability-note { font-family: 'Montserrat'; font-size: 0.75rem; font-weight: 500; color: #888; margin-bottom: 25px; text-align: center; display: block; width: 100%; }
 
-.badges img { 
-    height: 70px; /* Adjusted size for better visibility */
-    width: auto; 
-    object-fit: contain; 
-}
 
-        /* --- AVAILABILITY NOTE (Centered) --- */
-.availability-note { 
-    font-family: 'Montserrat'; 
-    font-size: 0.75rem; 
-    font-weight: 500; 
-    color: #888; 
-    margin-bottom: 25px; 
-    text-align: center; /* This moves the text to the middle */
-    display: block;
-    width: 100%;
-}
-        /* --- PARTNER SECTION --- */
+/* --- PARTNER SECTION --- */
         .partner-ad { background: var(--earth); padding: 40px; border-radius: 12px; text-align: center; border: 1px solid var(--border); }
-
-.partner-label { font-family: 'Montserrat'; font-size: 0.65rem; font-weight: 800; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 25px; }
-        
-        .partner-name { font-size: 1.8rem; margin: 15px 0; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 400; }
-        .verified-badge { width: 18px; height: 18px; background: var(--verified); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .partner-label { font-family: 'Montserrat'; font-size: 0.65rem; font-weight: 800; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 25px; }
+        .partner-name { font-size: 1.5rem; margin: 15px 0; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 400; }
+        .verified-badge { width: 18px; height: 18px; background: var(--verified); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .verified-badge svg { fill: white; width: 11px; height: 11px; }
-
         .shop-btn { display: block; background: var(--forest); color: white; text-decoration: none; font-family: 'Montserrat'; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; padding: 20px; border-radius: 4px; transition: 0.3s; margin: 25px 0; letter-spacing: 1px; }
         .shop-btn:hover { background: var(--gold); transform: translateY(-2px); }
 
-        .partner-info-text { font-family: 'Montserrat'; font-size: 0.75rem; color: #555; line-height: 1.8; }
-        .partner-info-text a { color: var(--black); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+        /* --- TECHNICAL INFO --- */
+        .tech-section-wrapper { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+        .tech-info { border-top: 1px solid #eee; padding-top: 40px; }
+        .tech-info h5 { font-family: 'Montserrat'; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); margin-bottom: 25px; font-weight: 700; }
 
-        /* --- TECHNICAL TABS --- */
-        .tech-info { margin-top: 80px; border-top: 1px solid var(--border); padding-top: 50px; }
-        .tech-info h5 { font-family: 'Montserrat'; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-weight: 700; }
+        .tech-accordion { border-bottom: 1px solid #eee; margin-bottom: 20px; }
+        .tech-header { list-style: none; cursor: pointer; font-family: 'Montserrat'; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 15px 0; display: flex; justify-content: space-between; }
+        .tech-header::after { content: '+'; color: var(--gold); }
+        details[open] .tech-header::after { content: '−'; }
+        .ingredients-style { font-family: 'Montserrat'; font-size: 0.8rem; color: #666; padding: 10px 0 30px; line-height: 1.8; }
+
+        /* --- FOOTER (The Fix) --- */
+        footer { padding: 80px 20px; background: #fafafa; border-top: 1px solid #eee; width: 100%; margin-top: 100px; }
+        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 40px; }
         
-        .ean-style { font-family: 'Montserrat'; font-size: 0.9rem; margin-bottom: 40px; color: #444; }
-        .ingredients-style { font-family: 'Montserrat'; font-size: 0.85rem; color: #666; line-height: 2; max-width: 900px; letter-spacing: 0.5px; }
-
-       
-        /* --- FOOTER --- */
-        footer { padding: 60px 20px; background: #fafafa; border-top: 1px solid #eee; }
-        .footer-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
-        .footer-col h5 { font-family: 'Montserrat'; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
-        .footer-col a { display: block; color: #777; text-decoration: none; margin-bottom: 10px; font-size: 0.85rem; transition: 0.3s; }
+        .footer-col { display: flex; flex-direction: column; }
+        .footer-col h5 { font-family: 'Montserrat'; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; font-weight: 700; color: #1a1a1a; }
+        .footer-col a { display: block; color: #777; text-decoration: none; margin-bottom: 12px; font-size: 0.85rem; transition: 0.3s; }
         .footer-col a:hover { color: var(--gold); }
-        .footer-logo-wrap { border-top: 1px solid #eee; padding-top: 40px; display: flex; justify-content: center; align-items: center; } 
-        .footer-logo-wrap img { width: 140px; }
+
+        .footer-logo-wrap { display: flex; justify-content: center; align-items: center; padding-top: 40px; border-top: 1px solid #eee; } 
+        .footer-logo-wrap img { width: 120px; opacity: 0.8; }
 
         @media (min-width: 768px) {
-            .footer-grid { grid-template-columns: repeat(4, 1fr) 1.5fr; text-align: left; }
+            .footer-grid { grid-template-columns: repeat(4, 1fr) 1.5fr; }
             .footer-logo-wrap { border-top: none; padding-top: 0; justify-content: flex-end; }
         }
-
-/* --- TECHNICAL SECTION CONTAINER --- */
-.tech-info { 
-    margin-top: 60px; 
-    padding: 40px 0;
-    border-top: 1px solid #eee;
-}
-
-.tech-info h5 { 
-    font-family: 'Montserrat', sans-serif; 
-    font-size: 0.7rem; 
-    text-transform: uppercase; 
-    letter-spacing: 2px; 
-    color: var(--gold);
-    margin-bottom: 25px;
-    font-weight: 700;
-}
-
-/* --- THE KEY TO THE "PERFECT" LOOK --- */
-.ingredients-style { 
-    display: flex;
-    flex-wrap: wrap;       /* This makes it wrap perfectly on mobile */
-    gap: 8px 12px;         /* Uniform spacing between ingredients */
-    font-family: 'Montserrat', sans-serif; 
-    font-size: 0.75rem; 
-    color: #444; 
-    line-height: 1.4;
-    max-width: 100%;
-}
-
-/* Each ingredient becomes its own "tag" or "item" */
-.ingredient-item {
-    display: inline-block;
-    white-space: nowrap;   /* Prevents single words from breaking */
-}
-
-/* Adds a bullet or dot between them that disappears at the end of lines */
-.ingredient-item:not(:last-child)::after {
-    content: "•";
-    margin-left: 12px;
-    color: #ccc;
-}
-
-/* Desktop specific adjustment */
-@media (min-width: 992px) {
-    .ingredients-style {
-        font-size: 0.85rem;
-        gap: 10px 20px;
-    }
-}
-/* --- ACCORDION STYLING --- */
-details.tech-accordion {
-    max-width: 800px;
-    margin: 20px auto;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-}
-
-/* The clickable header */
-summary.tech-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none; /* Removes default arrow */
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--black);
-    padding: 15px 0;
-}
-
-/* Hiding default Safari arrow */
-summary.tech-header::-webkit-details-marker { display: none; }
-
-/* The +/- icon logic */
-summary.tech-header::after {
-    content: '+';
-    font-size: 1.2rem;
-    color: var(--gold);
-    transition: 0.3s;
-}
-
-details[open] summary.tech-header::after {
-    content: '−'; /* High-end minus sign */
-}
-
-/* The content that appears */
-.ingredients-style {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;
-    color: #666;
-    line-height: 2;
-    padding: 10px 0 20px 20px;
-    border-left: 1px solid var(--gold);
-    margin-bottom: 20px;
-}
     </style>
 </head>
 <body>
+    
 <header>
     <a href="index.html" class="nav-back">
         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" fill="none"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
     </a>
     <div class="main-logo-fixed"><img src="Logo.png" alt="Rento"></div>
-     <div class="lang-container">EN | FI</div>
+    <div class="lang-container">EN | FI</div>
 </header>
 
 <main class="product-container">
     <div class="gallery-wrapper">
         <div class="main-img"><img src="E21.jpg" id="main-view" alt="Arctic Pine Body Balm"></div>
         <div class="thumb-grid">
-            <img src="E21.jpg" onclick="document.getElementById('main-view').src='E21.jpg'">
+
+
+<img src="E21.jpg" onclick="document.getElementById('main-view').src='E21.jpg'">
             <img src="E22.jpg" onclick="document.getElementById('main-view').src='E22.jpg'">
             <img src="E23.jpg" onclick="document.getElementById('main-view').src='E23.jpg'">
             <img src="E24.jpg" onclick="document.getElementById('main-view').src='E24.jpg'">
@@ -239,24 +125,23 @@ details[open] summary.tech-header::after {
         <span class="origin-tag">Made in Finland</span>
         
         <p class="description">
-            A moisturising body balm for daily use. The light lotion is easy to apply, feels pleasant on the skin, and is absorbed quickly. The lotion contains cloudberry extract and hyaluronic acid, which care for and moisturise the skin. The fragrance contains young pine needles, resin and wood scents to entice the senses.
+            A moisturising body balm for daily use. The light lotion is easy to apply, feels pleasant on the skin, and is absorbed quickly. The lotion contains cloudberry extract and hyaluronic acid, which care for and moisturise the skin.
         </p>
 
         <div class="award-box">
             <h4>Me Naiset: BEST OF THE YEAR 2019</h4>
-            <p style="margin-bottom: 15px;">Me Naiset -magazine has selected the best cosmetics of 2019. Rento Arctic Pine Body Balm is an award winner in the “skimp” section of skincare.</p>
+            <p style="margin-bottom: 15px; font-size: 0.9rem;">Me Naiset -magazine has selected the best cosmetics of 2019. Rento Arctic Pine Body Balm is an award winner.</p>
             <div class="award-quote">
-                “The fragrance of the Rento Arctic Pine Body Balm has a wonderful scent. The balm is quickly absorbed and has an excellent moisturizing effect.”
+                “The fragrance has a wonderful scent. The balm is quickly absorbed and has an excellent moisturizing effect.”
             </div>
         </div>
-<div class="badges">
-            <img src="badge-design.png" alt="Design from Finland Badge">
-            <img src="badge-key.png" alt="Key Flag Finland Badge">
+
+        <div class="badges">
+            <img src="badge-design.png" alt="Design from Finland">
+            <img src="badge-key.png" alt="Key Flag Finland">
         </div>
 
-        <div class="availability-note">
-            Out of our stock but you can find it in our partner store
-        </div>
+        <div class="availability-note">Out of our stock but you can find it in our partner store</div>
 
         <div class="partner-ad">
             <span class="partner-label">Partner of the month</span>
@@ -266,38 +151,55 @@ details[open] summary.tech-header::after {
                 <div class="verified-badge"><svg viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69l212.1-212.1c9.997-9.997 26.206-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></div>
             </h2>
             <a href="https://superiorsaunas.com/products/rento-body-balm-arctic-pine" class="shop-btn" target="_blank">Shop at Superior Sauna</a>
-            
-            <div class="partner-info-text">
+            <div class="partner-info-text" style="font-family: 'Montserrat'; font-size: 0.75rem;">
                 <p>Estimated Delivery: 3-5 Business Days (US Domestic)</p>
-                <p style="margin-top:10px;">Not in the US? <a href="retailers.html">Find it locally at our global retailers</a></p>
             </div>
         </div>
     </div>
 </main>
 
-<div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+<div class="tech-section-wrapper">
     <div class="tech-info">
         <h5>Additional information</h5>
-        <div style="font-family: 'Montserrat'; font-size: 0.8rem; margin-bottom: 30px;">
-   <strong>EAN:</strong> 6410413175150
-    </div> <details class="tech-accordion">
-        <summary class="tech-header">Ingredients</summary>
-        <div class="ingredients-style">
-            Aqua, Cetyl Alcohol, Glyceryl Stearate, Glycerin, Ethylhexyl Palmitate, Isopropyl Palmitate, Ceteareth-20, Rubus Chamaemorus Fruit Extract, Butyrospermum Parkii Butter, Hydrogenated Coco-Glycerides, Sodium Hyaluronate, Allantoin, Parfum, Butylphenyl Methylpropional, Dimethicone, Phenoxyethanol, Ethylhexylglycerin, Sodium Benzoate, Potassium Sorbate, Lactic Acid.
-        </div>
-    </details>
+        <p style="font-family: 'Montserrat'; font-size: 0.8rem; margin-bottom: 20px;"><strong>EAN:</strong> 6410413175150</p>
+        
+        <details class="tech-accordion">
+            <summary class="tech-header">Ingredients</summary>
+            <div class="ingredients-style">
+                Aqua, Cetyl Alcohol, Glyceryl Stearate, Glycerin, Ethylhexyl Palmitate, Isopropyl Palmitate, Ceteareth-20, Rubus Chamaemorus Fruit Extract, Butyrospermum Parkii Butter, Hydrogenated Coco-Glycerides, Sodium Hyaluronate, Allantoin, Parfum, Butylphenyl Methylpropional, Dimethicone, Phenoxyethanol, Ethylhexylglycerin, Sodium Benzoate, Potassium Sorbate, Lactic Acid.
+            </div>
+        </details>
+    </div>
 </div>
 
 <footer>
     <div class="footer-grid">
-        <div class="footer-col"><h5>Service</h5><a href="customer-service.html">Customer Service</a><a href="forretailers.html">For Retailers </a><a href="retailers.html">Our Parteners</a></div>
-        <div class="footer-col"><h5>Press</h5><a href="media.html">For Media</a><a href="imagery.html">Imagery</a></div>
-        <div class="footer-col"><h5>Sustainability</h5><a href="materials.html">Materials</a><a href="promise.html">Our Promise</a></div>
-        <div class="footer-col"><h5>Social</h5>
-            <a href="https://www.facebook.com/share/1FWH2khvzU/" target="_blank">Facebook</a>
-            <a href="https://www.instagram.com/rentosauna?igsh=MWRuM3ZiNGg0dnE3eQ==" target="_blank">Instagram</a>
+        <div class="footer-col">
+            <h5>Service</h5>
+            <a href="customer-service.html">Customer Service</a>
+            <a href="forretailers.html">For Retailers</a>
+<a href="retailers.html">Our Partners</a>
         </div>
-        <div class="footer-logo-wrap"><img src="Logo.png" alt="Rento"></div>
+        <div class="footer-col">
+            <h5>Press</h5>
+            <a href="media.html">For Media</a>
+            <a href="imagery.html">Imagery</a>
+        </div>
+        <div class="footer-col">
+            <h5>Sustainability</h5>
+            <a href="materials.html">Materials</a>
+            <a href="promise.html">Our Promise</a>
+        </div>
+        <div class="footer-col">
+            <h5>Social</h5>
+            <a href="https://facebook.com">Facebook</a>
+            <a href="https://instagram.com">Instagram</a>
+        </div>
+        <div class="footer-logo-wrap">
+            <img src="Logo.png" alt="Rento">
+        </div>
     </div>
+</footer>
+
 </body>
 </html>
