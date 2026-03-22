@@ -9,7 +9,7 @@
     <style>
         :root { 
             --white: #ffffff; --black: #1a1a1a; --border: rgba(0,0,0,0.05);
-            --forest: #080808; --earth: #f7f6f6; --gold: #c5a059;   
+            --forest: #080808; --earth: #f7f6f6; --gold: #1c2b59;   
             --verified: #0095f6; --error: #e74c3c;
         }
 
@@ -21,7 +21,7 @@
         .nav-back:hover { color: var(--gold); }
         .main-logo-fixed { grid-column: 2; display: flex; justify-content: center; }
         .main-logo-fixed img { height: 32px; }
-        .lang-container { grid-column: 3; display: flex; justify-content: flex-end; font-family: 'Montserrat'; font-size: 0.7rem; font-weight: 700; color: var(--forest); }
+        
 
 
         .product-container { max-width: 1200px; margin: 40px auto; display: grid; grid-template-columns: 1fr; gap: 60px; padding: 0 20px; }
@@ -48,13 +48,32 @@
         .award-box h4 { font-family: 'Montserrat'; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: #8a7350; margin-bottom: 15px; font-weight: 700; }
         .award-quote { font-style: italic; font-size: 1.15rem; color: #555; border-left: 2px solid var(--gold); padding-left: 20px; }
 
-        /* --- BADGES --- */
-        .badges { display: flex; gap: 30px; margin-bottom: 20px; align-items: center; }
-        .badges img { height: 80px; width: auto; object-fit: contain; }
+       /* --- BADGES (Centered) --- */
+.badges { 
+    display: flex; 
+    gap: 30px; 
+    margin: 30px auto 15px auto; /* Centers the container itself */
+    justify-content: center;     /* Centers the images inside */
+    align-items: center; 
+}
 
-        /* --- NEW AVAILABILITY NOTE --- */
-        .availability-note { font-family: 'Montserrat'; font-size: 0.7rem; font-weight: 400; color: #615f5f; margin-bottom: 25px; font-style: normal; }
+.badges img { 
+    height: 70px; /* Adjusted size for better visibility */
+    width: auto; 
+    object-fit: contain; 
+}
 
+        /* --- AVAILABILITY NOTE (Centered) --- */
+.availability-note { 
+    font-family: 'Montserrat'; 
+    font-size: 0.75rem; 
+    font-weight: 500; 
+    color: #888; 
+    margin-bottom: 25px; 
+    text-align: center; /* This moves the text to the middle */
+    display: block;
+    width: 100%;
+}
         /* --- PARTNER SECTION --- */
         .partner-ad { background: var(--earth); padding: 40px; border-radius: 12px; text-align: center; border: 1px solid var(--border); }
 
@@ -77,11 +96,73 @@
         .ean-style { font-family: 'Montserrat'; font-size: 0.9rem; margin-bottom: 40px; color: #444; }
         .ingredients-style { font-family: 'Montserrat'; font-size: 0.85rem; color: #666; line-height: 2; max-width: 900px; letter-spacing: 0.5px; }
 
-        footer { padding: 80px 20px; text-align: center; background: #fafafa; border-top: 1px solid #eee; margin-top: 100px; }
+       
+        /* --- FOOTER --- */
+        footer { padding: 60px 20px; background: #fafafa; border-top: 1px solid #eee; }
+        .footer-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+        .footer-col h5 { font-family: 'Montserrat'; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+        .footer-col a { display: block; color: #777; text-decoration: none; margin-bottom: 10px; font-size: 0.85rem; transition: 0.3s; }
+        .footer-col a:hover { color: var(--gold); }
+        .footer-logo-wrap { border-top: 1px solid #eee; padding-top: 40px; display: flex; justify-content: center; align-items: center; } 
+        .footer-logo-wrap img { width: 140px; }
+
+        @media (min-width: 768px) {
+            .footer-grid { grid-template-columns: repeat(4, 1fr) 1.5fr; text-align: left; }
+            .footer-logo-wrap { border-top: none; padding-top: 0; justify-content: flex-end; }
+        }
+
+/* --- TECHNICAL SECTION CONTAINER --- */
+.tech-info { 
+    margin-top: 60px; 
+    padding: 40px 0;
+    border-top: 1px solid #eee;
+}
+
+.tech-info h5 { 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 0.7rem; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    color: var(--gold);
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+/* --- THE KEY TO THE "PERFECT" LOOK --- */
+.ingredients-style { 
+    display: flex;
+    flex-wrap: wrap;       /* This makes it wrap perfectly on mobile */
+    gap: 8px 12px;         /* Uniform spacing between ingredients */
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 0.75rem; 
+    color: #444; 
+    line-height: 1.4;
+    max-width: 100%;
+}
+
+/* Each ingredient becomes its own "tag" or "item" */
+.ingredient-item {
+    display: inline-block;
+    white-space: nowrap;   /* Prevents single words from breaking */
+}
+
+/* Adds a bullet or dot between them that disappears at the end of lines */
+.ingredient-item:not(:last-child)::after {
+    content: "•";
+    margin-left: 12px;
+    color: #ccc;
+}
+
+/* Desktop specific adjustment */
+@media (min-width: 992px) {
+    .ingredients-style {
+        font-size: 0.85rem;
+        gap: 10px 20px;
+    }
+}
     </style>
 </head>
 <body>
-
 <header>
     <a href="index.html" class="nav-back">
         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" fill="none"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
@@ -166,6 +247,6 @@
             <a href="https://www.instagram.com/rentosauna?igsh=MWRuM3ZiNGg0dnE3eQ==" target="_blank">Instagram</a>
         </div>
         <div class="footer-logo-wrap"><img src="Logo.png" alt="Rento"></div>
-    <footer>
+    </div>
 </body>
 </html>
