@@ -9,7 +9,7 @@
     <style>
         :root { 
             --white: #ffffff; --black: #1a1a1a; --border: rgba(0,0,0,0.05);
-            --forest: #080808; --earth: #f7f6f6; --gold: #1c2b59;   
+            --forest: #080808; --earth: #f7f6f6; --gold: #c5a059;   
             --verified: #0095f6; --error: #e74c3c;
         }
 
@@ -21,6 +21,8 @@
         .nav-back:hover { color: var(--gold); }
         .main-logo-fixed { grid-column: 2; display: flex; justify-content: center; }
         .main-logo-fixed img { height: 32px; }
+        .lang-container { grid-column: 3; display: flex; justify-content: flex-end; font-family: 'Montserrat'; font-size: 0.7rem; font-weight: 700; color: var(--forest); }
+
 
         .product-container { max-width: 1200px; margin: 40px auto; display: grid; grid-template-columns: 1fr; gap: 60px; padding: 0 20px; }
         @media (min-width: 992px) { .product-container { grid-template-columns: 1fr 1.1fr; align-items: start; } }
@@ -51,7 +53,8 @@
         .badges img { height: 80px; width: auto; object-fit: contain; }
 
         /* --- NEW AVAILABILITY NOTE --- */
-        .availability-note { font-family: 'Montserrat'; font-size: 0.7rem; font-weight: 400; color: #9c9595; margin-bottom: 30px; font-style: normal; }
+        .availability-note { font-family: 'Montserrat'; font-size: 0.7rem; font-weight: 400; color: #615f5f; margin-bottom: 25px; font-style: normal; }
+
         /* --- PARTNER SECTION --- */
         .partner-ad { background: var(--earth); padding: 40px; border-radius: 12px; text-align: center; border: 1px solid var(--border); }
 
@@ -68,13 +71,13 @@
         .partner-info-text a { color: var(--black); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 
         /* --- TECHNICAL TABS --- */
-        .tech-info { margin-top: 80px; border-top: 1px normal var(--border); padding-top: 50px; }
-        .tech-info h5 { font-family: 'Montserrat'; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-weight: 700; }
+        .tech-info { margin-top: 80px; border-top: 1px solid var(--border); padding-top: 50px; }
+        .tech-info h5 { font-family: 'Montserrat'; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-weight: 700; }
         
-        .ean-style { font-family: 'Montserrat'; font-size: 0.7rem; margin-bottom: 40px; color: #444; }
+        .ean-style { font-family: 'Montserrat'; font-size: 0.9rem; margin-bottom: 40px; color: #444; }
         .ingredients-style { font-family: 'Montserrat'; font-size: 0.85rem; color: #666; line-height: 2; max-width: 900px; letter-spacing: 0.5px; }
 
-        /* --- FOOTER --- */
+       /* --- FOOTER --- */
         footer { padding: 60px 20px; background: #fafafa; border-top: 1px solid #eee; margin-top: 60px; }
         .footer-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
         .footer-col h5 { font-family: 'Montserrat'; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
@@ -88,6 +91,7 @@
             .footer-logo-wrap { justify-content: flex-end; }
         }
     </style>
+    </style>
 </head>
 <body>
 
@@ -96,6 +100,7 @@
         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" fill="none"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
     </a>
     <div class="main-logo-fixed"><img src="Logo.png" alt="Rento"></div>
+     <div class="lang-container">EN | FI</div>
 </header>
 
 <main class="product-container">
@@ -126,8 +131,6 @@
                 “The fragrance of the Rento Arctic Pine Body Balm has a wonderful scent. The balm is quickly absorbed and has an excellent moisturizing effect.”
             </div>
         </div>
-
-
 <div class="badges">
             <img src="badge-design.png" alt="Design from Finland Badge">
             <img src="badge-key.png" alt="Key Flag Finland Badge">
@@ -165,6 +168,7 @@
         </div>
     </div>
 </div>
+
 <footer>
     <div class="footer-grid">
         <div class="footer-col"><h5>Service</h5><a href="customer-service.html">Customer Service</a><a href="forretailers.html">For Retailers </a><a href="retailers.html">Our Parteners</a></div>
@@ -175,7 +179,6 @@
             <a href="https://www.instagram.com/rentosauna?igsh=MWRuM3ZiNGg0dnE3eQ==" target="_blank">Instagram</a>
         </div>
         <div class="footer-logo-wrap"><img src="Logo.png" alt="Rento"></div>
-    </div>
-</footer>
+    <footer>
 </body>
 </html>
