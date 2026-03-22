@@ -22,6 +22,7 @@
         .main-logo-fixed { grid-column: 2; display: flex; justify-content: center; }
         .main-logo-fixed img { height: 32px; }
         
+.lang-container { grid-column: 3; display: flex; justify-content: flex-end; font-family: 'Montserrat'; font-size: 0.7rem; font-weight: 700; color: var(--forest); }
 
 
         .product-container { max-width: 1200px; margin: 40px auto; display: grid; grid-template-columns: 1fr; gap: 60px; padding: 0 20px; }
@@ -160,6 +161,55 @@
         gap: 10px 20px;
     }
 }
+/* --- ACCORDION STYLING --- */
+details.tech-accordion {
+    max-width: 800px;
+    margin: 20px auto;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* The clickable header */
+summary.tech-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none; /* Removes default arrow */
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--black);
+    padding: 15px 0;
+}
+
+/* Hiding default Safari arrow */
+summary.tech-header::-webkit-details-marker { display: none; }
+
+/* The +/- icon logic */
+summary.tech-header::after {
+    content: '+';
+    font-size: 1.2rem;
+    color: var(--gold);
+    transition: 0.3s;
+}
+
+details[open] summary.tech-header::after {
+    content: '−'; /* High-end minus sign */
+}
+
+/* The content that appears */
+.ingredients-style {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    color: #666;
+    line-height: 2;
+    padding: 10px 0 20px 20px;
+    border-left: 1px solid var(--gold);
+    margin-bottom: 20px;
+}
     </style>
 </head>
 <body>
@@ -228,13 +278,14 @@
 <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
     <div class="tech-info">
         <h5>Additional information</h5>
-        <div class="ean-style"><strong>EAN:</strong> 6410413175150</div>
-        
-        <h5>Ingredients</h5>
+        <div style="font-family: 'Montserrat'; font-size: 0.8rem; margin-bottom: 30px;">
+   <strong>EAN:</strong> 6410413175150
+    </div> <details class="tech-accordion">
+        <summary class="tech-header">Ingredients</summary>
         <div class="ingredients-style">
             Aqua, Cetyl Alcohol, Glyceryl Stearate, Glycerin, Ethylhexyl Palmitate, Isopropyl Palmitate, Ceteareth-20, Rubus Chamaemorus Fruit Extract, Butyrospermum Parkii Butter, Hydrogenated Coco-Glycerides, Sodium Hyaluronate, Allantoin, Parfum, Butylphenyl Methylpropional, Dimethicone, Phenoxyethanol, Ethylhexylglycerin, Sodium Benzoate, Potassium Sorbate, Lactic Acid.
         </div>
-    </div>
+    </details>
 </div>
 
 <footer>
