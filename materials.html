@@ -1,0 +1,221 @@
+Zoé, [3/23/2026 7:58 AM]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materials & Sustainability | Rento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Montserrat:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { 
+            --white: #ffffff; --black: #1a1a1a; --border: rgba(0,0,0,0.1);
+            --forest: #080808; --gold: #c5a059; --earth: #fcfbf9;  
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: 'Cormorant Garamond', serif; 
+            background: var(--white); 
+            color: var(--black); 
+            line-height: 1.7; 
+            -webkit-font-smoothing: antialiased; 
+        }
+
+        /* --- HEADER (CONSISTENT) --- */
+        header { 
+            height: 90px; width: 100%; display: grid; 
+            grid-template-columns: 60px 1fr 60px; align-items: center; 
+            padding: 0 20px; position: fixed; top: 0; 
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+            z-index: 2000; border-bottom: 1px solid var(--border); 
+        }
+
+        .nav-back { grid-column: 1; display: flex; align-items: center; text-decoration: none; color: #000; }
+        .nav-back svg { width: 24px; height: 24px; stroke-width: 1.5px; stroke: currentColor; fill: none; }
+        
+        .main-logo-fixed { grid-column: 2; display: flex; justify-content: center; align-items: center; }
+        .main-logo-fixed img { height: 30px; cursor: pointer; }
+        
+        .lang-container { 
+            grid-column: 3; display: flex; justify-content: flex-end; 
+            font-family: 'Montserrat'; font-size: 0.7rem; font-weight: 700; 
+            color: var(--forest); white-space: nowrap; 
+        }
+
+        /* --- CONTENT WRAPPER --- */
+        main { padding: 140px 20px 80px; max-width: 1000px; margin: 0 auto; }
+
+        .hero-text { text-align: center; margin-bottom: 80px; }
+        .hero-text h1 { font-size: clamp(2.2rem, 6vw, 4.5rem); font-weight: 300; font-style: italic; line-height: 1.1; margin-bottom: 25px; }
+        .hero-text p { font-size: 1.3rem; color: #555; max-width: 800px; margin: 0 auto; }
+
+        /* --- SECTIONS --- */
+        section { margin-bottom: 80px; }
+        .section-tag { font-family: 'Montserrat'; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; color: #999; display: block; margin-bottom: 20px; font-weight: 600; }
+        h2 { font-size: 2.2rem; font-weight: 300; margin-bottom: 25px; font-style: italic; }
+        
+        .content-block { font-size: 1.15rem; color: #333; }
+        .content-block p { margin-bottom: 25px; }
+
+        /* --- MATERIAL GRID --- */
+        .material-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-top: 40px; }
+        
+        .material-card { 
+            padding: 40px; border: 1px solid #f0f0f0; background: #fafafa; border-radius: 4px;
+            transition: 0.3s;
+        }
+        .material-card h3 { font-family: 'Montserrat'; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
+        .material-card p { font-size: 1.05rem; color: #555; margin: 0; }
+
+        /* --- BADGE SECTION --- */
+        .badge-row { display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 50px; }
+        .badge-item { display: flex; align-items: center; gap: 20px; }
+        .badge-item img { width: 70px; height: auto; }
+        .badge-info h4 { font-family: 'Montserrat'; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px; }
+        .badge-info p { font-size: 1rem; color: #666; margin: 0; }
+
+        /* --- CATEGORY LINKS --- */
+
+.category-explore { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 40px; }
+        .cat-box { 
+            padding: 30px; border: 1px solid var(--black); text-decoration: none; color: var(--black); 
+            display: flex; justify-content: space-between; align-items: center; transition: 0.3s;
+        }
+        .cat-box:hover { background: var(--black); color: var(--white); }
+        .cat-box span { font-family: 'Montserrat'; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+
+        .sustainability-link { display: inline-block; color: var(--black); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--black); margin-top: 10px; }
+
+        /* --- FOOTER (NON-NEGOTIABLE) --- */
+        footer { padding: 60px 20px; background: #fafafa; border-top: 1px solid #eee; }
+        .footer-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+        .footer-col h5 { font-family: 'Montserrat'; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+        .footer-col a { display: block; color: #777; text-decoration: none; margin-bottom: 10px; font-size: 0.85rem; }
+        .footer-logo-wrap { display: flex; justify-content: center; align-items: center; } 
+        .footer-logo-wrap img { width: 140px; }
+
+        /* --- RESPONSIVE --- */
+        @media (min-width: 768px) {
+            .material-grid { grid-template-columns: 1fr 1fr; }
+            .category-explore { grid-template-columns: repeat(3, 1fr); }
+            .badge-row { grid-template-columns: repeat(3, 1fr); }
+            .footer-grid { grid-template-columns: repeat(4, 1fr) 1.5fr; text-align: left; }
+            .footer-logo-wrap { justify-content: flex-end; }
+        }
+
+        @media (max-width: 767px) {
+            main { padding-top: 120px; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .material-card { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="nav-back">
+        <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </a>
+    <div class="main-logo-fixed">
+        <img src="Logo.png" alt="Rento" onclick="location.href='index.html'">
+    </div>
+    <div class="lang-container">EN | FI</div>
+</header>
+
+<main>
+    <div class="hero-text">
+        <span class="section-tag">Responsibility</span>
+        <h1>Towards more sustainable choices</h1>
+        <p>Rento stands for quality, long life, and an inspiring range of modern, innovative sauna products for all senses.</p>
+    </div>
+
+    <section>
+        <h2>Responsible supply chains</h2>
+        <div class="content-block">
+            <p>Rento products are manufactured in Finland, in Europe or in Amfori BSCI-audited factories. The Rento brand is owned by the Finnish family-owned company Tammer Brands Oy, a member of the Amfori BSCI network which aims to improve social performance in international supply chains.</p>
+            <a href="https://www.tammerbrands.fi/vastuullisuus/" class="sustainability-link" target="_blank">Find out more about Tammer Brands sustainability »</a>
+        </div>
+    </section>
+
+    <section>
+        <span class="section-tag">Our Ideology</span>
+        <h2>Materials</h2>
+        <div class="content-block">
+            <p>At the heart of Rento is a commitment to materials that withstand time, gaze, and ethical consideration. We focus on continuous product development, reducing packaging, and increasing the use of recycled materials.</p>
+        </div>
+
+        <div class="material-grid">
+            <div class="material-card">
+                <h3>Aluminium</h3>
+                <p>Light, strong, and corrosion-resistant. While energy-intensive to produce, it can be recycled basically forever, a process that works exceptionally well in Finland.</p>
+</div>
+            <div class="material-card">
+                <h3>Bamboo</h3>
+                <p>A fast-growing plant requiring minimal water. Our heat-treated, laminated bamboo is light and durable, staying beautiful for years with proper care.</p>
+            </div>
+            <div class="material-card">
+                <h3>Biocomposite</h3>
+                <p>Made from DuraSense™ by Stora Enso, containing 40% wood fibre from Nordic forests. Designed for longevity and can be reused up to seven times.</p>
+            </div>
+            <div class="material-card">
+                <h3>Recycled cotton</h3>
+                <p>Our textiles utilize surplus cotton from the textile industry, collected in mills and processed back into high-quality fiber.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Certifications & Symbols</h2>
+        <div class="badge-row">
+            <div class="badge-item">
+                <img src="badge-design.png" alt="Design from Finland">
+                <div class="badge-info">
+                    <h4>Design from Finland</h4>
+                    <p>Designed in Finland.</p>
+                </div>
+            </div>
+            <div class="badge-item">
+                <img src="badge-key.png" alt="Key Flag">
+                <div class="badge-info">
+                    <h4>Key Flag Symbol</h4>
+                    <p>Manufactured in Finland.</p>
+                </div>
+            </div>
+            <div class="badge-item">
+                <img src="badge-vegan.png" alt="Vegan">
+                <div class="badge-info">
+                    <h4>Vegan</h4>
+                    <p>No animal-origin ingredients used.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <span class="section-tag">Collections</span>
+        <h2>Explore by category</h2>
+        <div class="category-explore">
+            <a href="textiles.html" class="cat-box"><span>Explore Textiles</span> →</a>
+            <a href="cosmetics.html" class="cat-box"><span>Explore Cosmetics</span> →</a>
+            <a href="pisara.html" class="cat-box"><span>Buckets & Ladles</span> →</a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col"><h5>Service</h5><a href="customer-service.html">Customer Service</a><a href="forretailers.html">For Retailers</a><a href="retailers.html">Our Parteners</a></div>
+        <div class="footer-col"><h5>Press</h5><a href="media.html">For Media</a><a href="imagery.html">Imagery</a></div>
+        <div class="footer-col"><h5>Sustainability</h5><a href="materials.html">Materials</a><a href="promise.html">Our Promise</a></div>
+        <div class="footer-col"><h5>Social</h5>
+            <a href="https://www.facebook.com/share/1FWH2khvzU/" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/rentosauna?igsh=MWRuM3ZiNGg0dnE3eQ==" target="_blank">Instagram</a>
+        </div>
+        <div class="footer-logo-wrap"><img src="Logo.png" alt="Rento"></div>
+    </div>
+</footer>
+
+</body>
+</html>
