@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service | Rento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Montserrat:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { 
+            --white: #ffffff; --black: #1a1a1a; --border: rgba(0,0,0,0.1);
+            --forest: #080808; 
+            --earth: #fcfbf9;  
+            --success: #27ae60;
+            --soft-green: #f1f9f5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: 'Cormorant Garamond', serif; 
+            background: var(--white); 
+            color: var(--black); 
+            line-height: 1.6; 
+            -webkit-font-smoothing: antialiased; 
+        }
+
+        /* --- HEADER (CONSISTENT) --- */
+        header { 
+            height: 90px; width: 100%; display: grid; 
+            grid-template-columns: 60px 1fr 60px; align-items: center; 
+            padding: 0 20px; position: fixed; top: 0; 
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+            z-index: 2000; border-bottom: 1px solid var(--border); 
+        }
+
+        .nav-back { grid-column: 1; display: flex; align-items: center; text-decoration: none; color: #000; transition: 0.3s; }
+        .nav-back svg { width: 24px; height: 24px; stroke-width: 1.5px; stroke: currentColor; fill: none; }
+        
+        .main-logo-fixed { grid-column: 2; display: flex; justify-content: center; align-items: center; }
+        .main-logo-fixed img { height: 30px; cursor: pointer; }
+        
+        .lang-container { 
+            grid-column: 3; display: flex; justify-content: flex-end; 
+            font-family: 'Montserrat'; font-size: 0.7rem; font-weight: 700; 
+            color: var(--forest); white-space: nowrap; 
+        }
+
+        /* --- CONTENT WRAPPER --- */
+        main { padding: 140px 20px 60px; max-width: 1100px; margin: 0 auto; }
+
+        .page-header { text-align: left; margin-bottom: 50px; border-bottom: 1px solid #eee; padding-bottom: 30px; }
+        .page-header h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 300; font-style: italic; color: var(--forest); margin-bottom: 15px; }
+        .intro-text { font-size: 1.2rem; max-width: 800px; color: #444; }
+
+        /* GRID LAYOUT FOR DESKTOP */
+        .service-layout { display: grid; grid-template-columns: 1fr; gap: 60px; }
+
+        @media (min-width: 992px) {
+            .service-layout { grid-template-columns: 1.5fr 1fr; }
+        }
+
+        /* CONTENT SECTIONS */
+        section { margin-bottom: 40px; }
+        h2 { font-family: 'Montserrat'; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; color: var(--black); }
+        p { margin-bottom: 20px; font-size: 1.1rem; color: #333; }
+        
+        .text-link { color: var(--black); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--black); padding-bottom: 2px; transition: 0.3s; }
+        .text-link:hover { opacity: 0.6; }
+
+        /* --- GREEN ACTION BOXES --- */
+        .contact-cards { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        
+        .email-box { 
+            background: var(--soft-green); 
+            border: 1px solid rgba(39, 174, 96, 0.1); 
+            padding: 30px; 
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .email-box:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        
+        .email-box h4 { font-family: 'Montserrat'; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--success); margin-bottom: 10px; }
+        .email-box .email-address { font-family: 'Montserrat'; font-weight: 600; font-size: 0.9rem; color: var(--black); text-decoration: none; display: block; word-break: break-all; }
+/* RETAILER BOX */
+        .retailer-info-card { padding: 30px; background: #f9f9f9; border-radius: 4px; font-size: 0.95rem; }
+        .retailer-info-card address { font-style: normal; line-height: 2; margin-top: 15px; font-family: 'Montserrat'; font-size: 0.85rem; }
+
+        /* --- FOOTER (NON-NEGOTIABLE) --- */
+        footer { padding: 60px 20px; background: #fafafa; border-top: 1px solid #eee; }
+        .footer-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+        .footer-col h5 { font-family: 'Montserrat'; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+        .footer-col a { display: block; color: #777; text-decoration: none; margin-bottom: 10px; font-size: 0.85rem; }
+        .footer-logo-wrap { display: flex; justify-content: center; align-items: center; } 
+        .footer-logo-wrap img { width: 140px; }
+
+        @media (min-width: 768px) {
+            .footer-grid { grid-template-columns: repeat(4, 1fr) 1.5fr; text-align: left; }
+            .footer-logo-wrap { justify-content: flex-end; }
+        }
+
+        @media (max-width: 767px) {
+            main { padding-top: 120px; }
+            .page-header { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="nav-back">
+        <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </a>
+    <div class="main-logo-fixed">
+        <img src="Logo.png" alt="Rento" onclick="location.href='index.html'">
+    </div>
+    <div class="lang-container">EN | FI</div>
+</header>
+
+<main>
+    <div class="page-header">
+        <h1>Customer Service</h1>
+        <p class="intro-text">To help us respond to your questions and enquiries as quickly as possible, please refer to the appropriate channels below.</p>
+    </div>
+
+    <div class="service-layout">
+        <div class="service-details">
+            <section>
+                <h2>Product support</h2>
+                <p>According to the Consumer Protection Act, the primary location for returning a malfunctioning product is the seller’s place of business. However, your feedback is our priority in regard to product development and quality assurance.</p>
+                <p>At Tammer Brands Ltd, we always process written complaints. This creates fewer misunderstandings and better legal protection for you. If you suspect a material or manufacturing defect in a product, please fill in the form on the Tammer Brands Ltd website.</p>
+                <a href="support.html" class="text-link">Product feedback form »</a>
+            </section>
+
+            <section>
+                <h2>Marketing</h2>
+                <p>For enquiries about marketing, branding or events. See also the Brand Gallery for official imagery and assets.</p>
+                <a href="imagery.html" class="text-link">See also the Brand Gallery here »</a>
+            </section>
+
+            <section>
+                <h2>Retailers</h2>
+                <p>Retailers are served by Tammer Brands Ltd’s customer service Mon-Fri from 8 am to 4 pm (UTC+2).</p>
+                <div class="retailer-info-card">
+                    <strong>Tammer Brands Ltd</strong>
+                    <address>
+                        PL 107, 33101 Tampere, Finland<br>
+                        +358 3 252 1111<br>
+                        <a href="mailto:tammerbrands@tammerbrands.fi" style="color:inherit;">tammerbrands@tammerbrands.fi</a><br>
+                        <a href="https://www.tammerbrands.fi/en" target="_blank" style="color:inherit;">www.tammerbrands.fi/en</a>
+                    </address>
+                    <br>
+                    <a href="forretailers.html" class="text-link">See also our retailer pages »</a>
+                </div>
+            </section>
+        </div>
+
+<div class="contact-cards">
+            <h2>Email Shortcuts</h2>
+            
+            <div class="email-box">
+                <h4>Product support</h4>
+                <p style="font-size: 0.8rem; margin-bottom: 10px;">Product enquiries and feedback:</p>
+                <a href="mailto:productsupport@tammerbrands.fi" class="email-address">productsupport@tammerbrands.fi</a>
+            </div>
+
+            <div class="email-box">
+                <h4>Marketing</h4>
+                <p style="font-size: 0.8rem; margin-bottom: 10px;">For marketing, branding or events enquiries:</p>
+                <a href="mailto:marketing@tammerbrands.fi" class="email-address">marketing@tammerbrands.fi</a>
+            </div>
+
+            <div class="email-box">
+                <h4>For Retailers</h4>
+                <p style="font-size: 0.8rem; margin-bottom: 10px;">Retailers are served by Tammer Brands:</p>
+                <a href="mailto:tammerbrands@tammerbrands.fi" class="email-address">tammerbrands@tammerbrands.fi</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col"><h5>Service</h5><a href="customer-service.html">Customer Service</a><a href="forretailers.html">For Retailers</a><a href="retailers.html">Our Parteners</a></div>
+        <div class="footer-col"><h5>Press</h5><a href="media.html">For Media</a><a href="imagery.html">Imagery</a></div>
+        <div class="footer-col"><h5>Sustainability</h5><a href="materials.html">Materials</a><a href="promise.html">Our Promise</a></div>
+        <div class="footer-col"><h5>Social</h5>
+            <a href="https://www.facebook.com/share/1FWH2khvzU/" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/rentosauna?igsh=MWRuM3ZiNGg0dnE3eQ==" target="_blank">Instagram</a>
+        </div>
+        <div class="footer-logo-wrap"><img src="Logo.png" alt="Rento"></div>
+    </div>
+</footer>
+
+</body>
+</html>
