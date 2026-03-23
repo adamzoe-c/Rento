@@ -25,11 +25,31 @@
         .nav-back svg { width: 20px; height: 20px; }
 
         .main-logo-fixed img { height: 38px; width: auto; max-width: 150px; } 
-        
-        .lang-switch { font-family: 'Montserrat'; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; width: 40px; text-align: right; }
-        .lang-switch a { text-decoration: none; color: #ccc; }
-        .lang-switch a.active { color: var(--black); }
+        .lang-switch { 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 0.7rem; 
+    font-weight: 700; 
+    letter-spacing: 1px; 
+    
+    /* These three lines fix the mobile stacking issue */
+    display: flex; 
+    align-items: center; 
+    white-space: nowrap; 
+    
+    gap: 5px;
+    width: auto;
+    min-width: fit-content;
+}
 
+.lang-switch a { 
+    text-decoration: none; 
+    color: #ccc; 
+    display: inline-block;
+}
+
+.lang-switch a.active { 
+    color: #1a1a1a; 
+}
         /* --- MAIN CONTAINER --- */
         .product-container { max-width: 1200px; margin: 20px auto; display: flex; flex-direction: column; gap: 30px; padding: 0 20px; }
 
@@ -45,7 +65,7 @@
         .status-wrapper { width: 100%; text-align: center; margin-bottom: 25px; padding: 0 10px; }
         .stock-status { display: inline-flex; align-items: center; gap: 8px; font-family: 'Montserrat'; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 5px; }
         .red-dot { height: 8px; width: 8px; background: var(--error); border-radius: 50%; }
-        .partner-notice { font-family: 'Montserrat'; font-size: 0.75rem; color: #888; font-style: italic; display: block; line-height: 1.4; }
+        .partner-notice { font-family: 'Montserrat'; font-size: 0.75rem; color: #888; font-style: normal; display: block; line-height: 1.4; }
 
         h1 { font-size: 2.8rem; font-weight: 300; font-style: normal; line-height: 1.1; margin-bottom: 8px; text-align: left; }
         .origin-tag { font-family: 'Montserrat'; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); margin-bottom: 25px; display: block; font-weight: 600; text-align: left; }
@@ -131,7 +151,7 @@
             <span class="partner-notice">Out of our stock but available on our partner's store</span>
         </div>
 
-        <h1>Arctic Pine Body Balm</h1>
+        <h1>Arctic Pine Body Balm 400 ml</h1>
         <span class="origin-tag"></span>
         
         <p class="description">
